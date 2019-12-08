@@ -3,7 +3,8 @@
 # Libraries
 import time
 import logging
-
+import pandas
+import pandas_datareader as web
 
 
 def vor():
@@ -11,9 +12,8 @@ def vor():
     to a given location
     """
     try:
-        print('Hola')
-        time.sleep(10)
         folder_check()
+        get_stock_data()
         return True
     except Exception as e:
         logging.exception(e)
@@ -24,11 +24,18 @@ def folder_check():
     and creates if not available
     """
     try:
-        print('folder check function ran successfully')
+        #TODO: add the folders and files to be checked later
         return True
     except Exception as e:
         logging.exception(e)
         return False
+
+def get_stock_data():
+    """
+    """
+    pan = web.get_data_yahoo('MSFT', '2019-11-01', '2019-11-30', interval='v')
+    pan.to_csv('GOOG_v.csv')
+    return True
 
 # Logging
 logging.basicConfig(
