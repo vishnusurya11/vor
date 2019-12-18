@@ -4,6 +4,7 @@
 import time
 import logging
 import pandas
+import datetime 
 import pandas_datareader as web
 
 
@@ -33,8 +34,12 @@ def folder_check():
 def get_stock_data():
     """
     """
-    pan = web.get_data_yahoo('MSFT', '2019-11-01', '2019-11-30', interval='v')
-    pan.to_csv('GOOG_v.csv')
+    try:
+        start = datetime.datetime(1970,1,1)
+        pan = web.get_data_yahoo('STZ.B',start)
+        pan.to_csv('STZ.B.csv')
+    except Exception as e:
+        print(e)
     return True
 
 # Logging
