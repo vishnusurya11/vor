@@ -35,7 +35,11 @@ def add_to_process_log():
     
     return True
 
+def read_process_log():
+    
+
 if __name__ == '__main__':
     #clean_data()
-    create_process_log()
-    add_to_process_log()
+    #create_process_log()
+    #add_to_process_log()
+    read_process_log()

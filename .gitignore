@@ -1,4 +1,6 @@
 # exclude everything
 *.log
+*.txt
+*.csv
 
 # exception to the rule
